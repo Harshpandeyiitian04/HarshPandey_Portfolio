@@ -5,9 +5,9 @@ load_dotenv()
 from langchain_community.document_loaders import PyPDFLoader
 from langchain_community.vectorstores import Chroma
 from langchain_community.embeddings import HuggingFaceEmbeddings
-from langchain.chains import RetrievalQA
+from langchain_classic.chains import RetrievalQA
 from langchain.prompts import PromptTemplate
-from langchain_community.chat_models import ChatOpenAI
+from langchain_community.chat_models.openai import ChatOpenAI
 
 # 🔐 Map OpenRouter key to OpenAI key
 os.environ["OPENAI_API_KEY"] = os.getenv("OPENROUTER_API_KEY")
