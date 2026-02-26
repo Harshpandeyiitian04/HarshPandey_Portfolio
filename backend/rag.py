@@ -5,10 +5,7 @@ load_dotenv()
 from langchain_community.document_loaders import PyPDFLoader
 from langchain_community.vectorstores import Chroma
 from langchain_community.embeddings import HuggingFaceEmbeddings
-
-from langchain_classic.chains import RetrievalQA
 from langchain_core.prompts import PromptTemplate
-
 from langchain_community.chat_models.openai import ChatOpenAI
 
 # 🔐 Map OpenRouter key to OpenAI key
@@ -32,9 +29,9 @@ retriever = vectorstore.as_retriever(
 
 # 🤖 OpenRouter LLM
 llm = ChatOpenAI(
-    model_name="mistralai/mistral-7b-instruct",
+    model="openai/gpt-4o-mini",
     openai_api_base="https://openrouter.ai/api/v1",
-    temperature=0.2,  # Lower = more factual, less hallucination
+    temperature=0.2,
 )
 
 # 🎯 Strong Professional Prompt
@@ -74,11 +71,16 @@ PROMPT = PromptTemplate(
     input_variables=["context", "question"],
 )
 
-qa_chain = RetrievalQA.from_chain_type(
-    llm=llm,
-    retriever=retriever,
-    chain_type_kwargs={"prompt": PROMPT},
-)
-
 def ask_resume(question: str):
-    return qa_chain.run(question)
+    docs = retriever.get_relevant_documents(question)
+
+    context = "\n\n".join([doc.page_content for doc in docs])
+
+    formatted_prompt = PROMPT.format(
+        context=context,
+        question=question
+    )
+
+    response = llm.invoke(formatted_prompt)
+
+    return response.content
