@@ -29,13 +29,11 @@ const AIChat = ({ onClose }: Props) => {
     setLoading(true);
 
     try {
-      const res = await fetch("https://harshpandey-portfolio.onrender.com/chat", {
+      const res = await fetch(`${import.meta.env.VITE_API_URL}/chat`, {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ question }),
-      });
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ question })
+      })
 
       if (!res.ok) throw new Error("Server error");
 
