@@ -29,7 +29,7 @@ const AIChat = ({ onClose }: Props) => {
     setLoading(true);
 
     try {
-      const res = await fetch("harshpandeyportfolio-production-4dd1.up.railway.app", {
+      const res = await fetch("https://harshpandey-portfolio.onrender.com/chat", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
