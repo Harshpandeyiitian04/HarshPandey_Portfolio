@@ -5,8 +5,10 @@ load_dotenv()
 from langchain_community.document_loaders import PyPDFLoader
 from langchain_community.vectorstores import Chroma
 from langchain_community.embeddings import HuggingFaceEmbeddings
+
 from langchain_classic.chains import RetrievalQA
-from langchain.prompts import PromptTemplate
+from langchain_core.prompts import PromptTemplate
+
 from langchain_community.chat_models.openai import ChatOpenAI
 
 # 🔐 Map OpenRouter key to OpenAI key
