@@ -42,19 +42,19 @@ const services = [
     id: 1,
     img: "/service1.png",
     title: "Full-Stack Development",
-    counter: 8,
+    counter: 10,
   },
   {
     id: 2,
     img: "/service2.png",
     title: "AI-Powered Solutions",
-    counter: 3,
+    counter: 5,
   },
   {
     id: 3,
     img: "/service3.png",
-    title: "Backend Development",
-    counter: 5,
+    title: "software Development",
+    counter: 2,
   },
 ];
 

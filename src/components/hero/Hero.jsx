@@ -54,22 +54,29 @@ const Hero = () => {
           <br />
           <span>I'm Harsh Pandey!</span>
         </motion.h1>
-        {/* AWARDS */}
+        {/* DESCRIPTION */}
         <motion.div
           variants={awardVariants}
           initial="initial"
           animate="animate"
-          className="awards"
+          className="descriptionBox"
         >
-          <motion.h2 variants={awardVariants}>Full-Stack Developer</motion.h2>
           <motion.p variants={awardVariants}>
-            Student at IIT Mandi, specializing in MERN Stack, Next.js, Django, FastAPI and AI-powered web solutions.
+            I’m a B.Tech student at IIT Mandi passionate about Full-Stack Development,
+            Artificial Intelligence, and Software Engineering. I build scalable,
+            real-time, and AI-powered products that turn meaningful ideas into
+            practical solutions.
           </motion.p>
-          <motion.div variants={awardVariants} className="awardList">
-            <motion.img variants={awardVariants} src="/award1.png" alt="" />
-            <motion.img variants={awardVariants} src="/award2.png" alt="" />
-            <motion.img variants={awardVariants} src="/award3.png" alt="" />
-          </motion.div>
+          <motion.p variants={awardVariants}>
+            With hands-on experience in Next.js, React, Node.js, TypeScript, Python,
+            MongoDB, Supabase, and Docker, I create reliable experiences across the
+            stack—from AI-powered platforms and autonomous agents to real-time
+            management and financial applications.
+          </motion.p>
+          <motion.p variants={awardVariants}>
+            I’m driven by curiosity, thoughtful problem-solving, and a commitment to
+            transforming complex challenges into elegant, user-focused products.
+          </motion.p>
         </motion.div>
         {/* SCROLL SVG */}
         <motion.a

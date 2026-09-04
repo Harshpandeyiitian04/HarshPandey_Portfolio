@@ -29,7 +29,11 @@ const AIChat = ({ onClose }: Props) => {
     setLoading(true);
 
     try {
-      const res = await fetch(`${import.meta.env.VITE_API_URL}/chat`, {
+      const apiUrl = (import.meta as ImportMeta & {
+        env: { VITE_API_URL?: string };
+      }).env.VITE_API_URL;
+
+      const res = await fetch(`${apiUrl ?? ""}/chat`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ question })
